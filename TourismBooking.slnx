@@ -1,1 +1,7 @@
-<Solution />
+<Solution>
+  <Project Path="src/TourismBooking.Api/TourismBooking.Api.csproj" />
+  <Project Path="src/TourismBooking.Application/TourismBooking.Application.csproj" />
+  <Project Path="src/TourismBooking.Domain/TourismBooking.Domain.csproj" />
+  <Project Path="src/TourismBooking.Infrastructure/TourismBooking.Infrastructure.csproj" />
+  <Project Path="TourismBooking.Tests/TourismBooking.Tests.csproj" />
+</Solution>
