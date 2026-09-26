@@ -18,6 +18,9 @@ namespace TourismBooking.Api.Controllers
         /// <summary>
         /// Crea una nueva reserva validando capacidad y disponibilidad.
         /// </summary>
+        /// <param name="dto">DTO con los datos de la reserva a crear.</param>
+        /// <returns> La reserva creada.</returns>
+     
         [HttpPost]
         public async Task<IActionResult> Create([FromBody] CreateBookingDto dto)
         {
@@ -26,8 +29,10 @@ namespace TourismBooking.Api.Controllers
         }
 
         /// <summary>
-        /// Consulta una reserva por su ID.
+        /// Obtiene los detalles de una reserva por su ID.
         /// </summary>
+        /// <param name="id">ID de la reserva a obtener.</param>
+        /// <returns>Los detalles de la reserva.</returns>
         [HttpGet("{id:int}")]
         public async Task<IActionResult> GetById(int id)
         {
@@ -37,8 +42,10 @@ namespace TourismBooking.Api.Controllers
         }
 
         /// <summary>
-        /// Consulta reservas aplicando filtros por fecha, estado o experiencia.
+        /// Obtiene una lista de reservas filtradas por fecha, estado o experiencia.
         /// </summary>
+        /// <param name="filter">DTO con los criterios de filtrado.</param>
+        /// <returns>La lista de reservas que cumplen con los criterios de filtrado.</returns>
         [HttpGet]
         public async Task<IActionResult> GetFiltered([FromQuery] BookingFilterDto filter)
         {
@@ -47,8 +54,10 @@ namespace TourismBooking.Api.Controllers
         }
 
         /// <summary>
-        /// Cancela una reserva existente y libera la capacidad ocupada.
+        /// Cancela una reserva existente por su ID.
         /// </summary>
+        /// <param name="id">ID de la reserva a cancelar.</param>
+        /// <returns>Un mensaje indicando el resultado de la operación.</returns>
         [HttpPatch("{id:int}/cancelacion")]
         public async Task<IActionResult> Cancel(int id)
         {

@@ -10,14 +10,28 @@ namespace TourismBooking.Infrastructure.Persistence
 {
     public class TourismBookingDbContext : DbContext
     {
+        /// <summary>
+        /// Constructor de la clase <see cref="TourismBookingDbContext"/>.
+        /// </summary>
+        /// <param name="options">Las opciones para la configuración del contexto de base de datos.</param>
         public TourismBookingDbContext(DbContextOptions<TourismBookingDbContext> options) : base(options)
         {
         }
 
+        /// <summary>
+        /// Obtiene o establece el conjunto de entidades <see cref="Experience"/> en el contexto de base de datos.
+        /// </summary>
         public DbSet<Experience> Experiences => Set<Experience>();
 
+        /// <summary>
+        /// Obtiene o establece el conjunto de entidades <see cref="Booking"/> en el contexto de base de datos.
+        /// </summary>
         public DbSet<Booking> Bookings => Set<Booking>();
 
+        /// <summary>
+        /// Configura el modelo de datos para las entidades en el contexto de base de datos.
+        /// </summary>
+        /// <param name="modelBuilder"></param>
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
@@ -26,6 +40,10 @@ namespace TourismBooking.Infrastructure.Persistence
             ConfigureBooking(modelBuilder);
         }
 
+        /// <summary>
+        /// Configura la entidad <see cref="Experience"/> en el modelo de datos.
+        /// </summary>
+        /// <param name="modelBuilder">El constructor de modelos.</param>
         private static void ConfigureExperience(ModelBuilder modelBuilder)
         {
             var entity = modelBuilder.Entity<Experience>();
@@ -59,6 +77,10 @@ namespace TourismBooking.Infrastructure.Persistence
             entity.HasIndex(x => x.Status);
         }
 
+        /// <summary>
+        /// Configura la entidad <see cref="Booking"/> en el modelo de datos.
+        /// </summary>
+        /// <param name="modelBuilder">El constructor de modelos.</param>
         private static void ConfigureBooking(ModelBuilder modelBuilder)
         {
             var entity = modelBuilder.Entity<Booking>();

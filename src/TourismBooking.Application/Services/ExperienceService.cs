@@ -17,7 +17,7 @@ namespace TourismBooking.Application.Services
         private readonly TourismBookingDbContext _context;
 
         /// <summary>
-        /// Inicializa una nueva instancia de la clase <see cref="ExperienceService"/>.
+        /// Constructor de la clase ExperienceService.
         /// </summary>
         /// <param name="context">El contexto de base de datos.</param>
         public ExperienceService(TourismBookingDbContext context)

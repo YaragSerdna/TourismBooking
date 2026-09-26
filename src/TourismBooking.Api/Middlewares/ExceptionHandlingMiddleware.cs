@@ -14,6 +14,11 @@ namespace TourismBooking.Api.Middlewares
             _logger = logger;
         }
 
+        /// <summary>
+        /// Invoca el siguiente middleware en la cadena y maneja cualquier excepción no controlada que ocurra durante la ejecución.
+        /// </summary>
+        /// <param name="context">Contexto de la solicitud HTTP.</param>
+        /// <returns>Una tarea que representa la operación asincrónica.</returns>
         public async Task InvokeAsync(HttpContext context)
         {
             try
@@ -27,6 +32,12 @@ namespace TourismBooking.Api.Middlewares
             }
         }
 
+        /// <summary>
+        /// Maneja una excepción no controlada y devuelve una respuesta HTTP con el error correspondiente.
+        /// </summary>
+        /// <param name="context">Contexto de la solicitud HTTP.</param>
+        /// <param name="exception">La excepción no controlada.</param>
+        /// <returns>Una tarea que representa la operación asincrónica.</returns>
         private static Task HandleExceptionAsync(HttpContext context, Exception exception)
         {
             context.Response.ContentType = "application/json";

@@ -18,6 +18,8 @@ namespace TourismBooking.Api.Controllers
         /// <summary>
         /// Crea una nueva experiencia turística.
         /// </summary>
+        /// <param name="dto">DTO con los datos de la experiencia a crear.</param>
+        /// <returns>La experiencia creada.</returns>
         [HttpPost]
         public async Task<IActionResult> Create([FromBody] CreateExperienceDto dto)
         {
@@ -26,8 +28,9 @@ namespace TourismBooking.Api.Controllers
         }
 
         /// <summary>
-        /// Consulta el listado de experiencias activas.
+        /// Obtiene la lista de experiencias turísticas activas.
         /// </summary>
+        /// <returns>La lista de experiencias activas.</returns>
         [HttpGet]
         public async Task<IActionResult> GetActive()
         {
@@ -36,8 +39,10 @@ namespace TourismBooking.Api.Controllers
         }
 
         /// <summary>
-        /// Consulta el detalle de una experiencia por su ID.
+        /// Obtiene una experiencia turística por su ID.
         /// </summary>
+        /// <param name="id">ID de la experiencia a obtener.</param>
+        /// <returns>Los detalles de la experiencia.</returns>
         [HttpGet("{id:int}")]
         public async Task<IActionResult> GetById(int id)
         {
@@ -47,8 +52,11 @@ namespace TourismBooking.Api.Controllers
         }
 
         /// <summary>
-        /// Actualiza una experiencia turística existente.
+        /// Actualiza los detalles de una experiencia turística existente.
         /// </summary>
+        /// <param name="id">ID de la experiencia a actualizar.</param>
+        /// <param name="dto">DTO con los nuevos datos de la experiencia.</param>
+        /// <returns>La experiencia actualizada.</returns>
         [HttpPut("{id:int}")]
         public async Task<IActionResult> Update(int id, [FromBody] UpdateExperienceDto dto)
         {
@@ -58,8 +66,10 @@ namespace TourismBooking.Api.Controllers
         }
 
         /// <summary>
-        /// Inactiva lógicamente una experiencia.
+        /// Inactiva una experiencia turística existente.
         /// </summary>
+        /// <param name="id">ID de la experiencia a inactivar.</param>
+        /// <returns>Un mensaje indicando el resultado de la operación.</returns>
         [HttpPatch("{id:int}")]
         public async Task<IActionResult> Inactivate(int id)
         {

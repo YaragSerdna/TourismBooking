@@ -18,7 +18,7 @@ namespace TourismBooking.Application.Services
         private readonly TourismBookingDbContext _context;
 
         /// <summary>
-        /// Constructor for BookingService, initializes the service with the provided database context.
+        /// Constructor de la clase BookingService.
         /// </summary>
         /// <param name="context">El contexto de base de datos para acceder a los datos.</param>
         public BookingService(TourismBookingDbContext context)
